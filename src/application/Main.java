@@ -1,5 +1,7 @@
 package application;
 
+import modele.Album;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -16,7 +18,7 @@ public class Main {
 
                 switch (choix) {
                     case 1:
-
+                            c.saisieNomAlbum();
                         break;
                     case 2:
 
