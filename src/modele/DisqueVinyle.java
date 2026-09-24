@@ -29,8 +29,10 @@ public class DisqueVinyle extends Album{
         this.taille = taille;
     }
 
+
+
     @Override
     public String getSupport() {
-        return "";
+        return "Vinyle";
     }
 }

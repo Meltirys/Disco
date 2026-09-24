@@ -41,6 +41,6 @@ public class FichierNumerique extends Album{
 
     @Override
     public String getSupport() {
-        return "";
+        return "Numerique";
     }
 }

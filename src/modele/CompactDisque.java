@@ -31,6 +31,6 @@ public class CompactDisque extends Album{
 
     @Override
     public String getSupport() {
-        return "";
+        return "CD";
     }
 }
