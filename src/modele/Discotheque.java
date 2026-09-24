@@ -19,7 +19,7 @@ public class Discotheque {
                     compteur++;
                 }
             }
-            if(compteur>1){
+            if(compteur>=1){
                 throw new AlbumDejaExistantException("Album déjà existant");
             }else{
                 discotheque.add(a);
@@ -54,7 +54,7 @@ public class Discotheque {
             return trouve;
         }
 
-        public static void supprimerAlbum(String nom){
+        public static void supprimerAlbum(String nom) throws AlbumIntrouvableException, DiscothequeVideException{
             Album trouve = null;
             for (Album a : discotheque) {
                 if (a.getNom().equals(nom)) {
@@ -62,11 +62,17 @@ public class Discotheque {
                     break;
                 }
             }
-            if(trouve != null){
+            if(discotheque.size() < 1) {
+                throw new DiscothequeVideException("La discothèque est vide!");
+            }
+
+            if (trouve == null){
+                throw new AlbumIntrouvableException("Disque non trouvé");
+            }
                 System.out.println("album trouvé !");
                 discotheque.remove(trouve);
                 System.out.println("Album supprimé de la discothèque");
-            }
+
         }
 
     }
