@@ -3,10 +3,10 @@ package modele;
 import java.time.LocalDate;
 
 public abstract class Album {
-    private String nom;
-    private String artiste;
-    private LocalDate Date;
-    private int qte;
+    protected String nom;
+    protected String artiste;
+    protected LocalDate Date;
+    protected int qte;
 
     public Album(String nom, String artiste, LocalDate date, int qte) {
         this.nom = nom;
@@ -57,4 +57,5 @@ public abstract class Album {
                 '}';
     }
 
+    public abstract String getSupport();
 }
