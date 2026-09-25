@@ -1,11 +1,9 @@
 package application;
 
 import exceptions.AlbumDejaExistantException;
+import exceptions.AlbumIntrouvableException;
 import exceptions.DiscothequeVideException;
-import modele.CompactDisque;
-import modele.Discotheque;
-import modele.DisqueVinyle;
-import modele.FichierNumerique;
+import modele.*;
 
 import javax.swing.text.DateFormatter;
 import java.time.LocalDate;
@@ -95,7 +93,12 @@ public class Controller {
         return datef;
     }
 
-    public void retirerAlbum() {
+    public void retirerAlbum() throws DiscothequeVideException, AlbumIntrouvableException {
+
+        scan.nextLine();
+        System.out.println("Veuillez saisir le nom de l'album");
+        String nom = scan.nextLine();
+        Discotheque.supprimerAlbum(nom);
 
     }
 
