@@ -1,5 +1,11 @@
 package application;
 
+import exceptions.AlbumDejaExistantException;
+import exceptions.AlbumIntrouvableException;
+import exceptions.DiscothequeVideException;
+import exceptions.SaisieInvalideException;
+import modele.Album;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -16,7 +22,7 @@ public class Main {
 
                 switch (choix) {
                     case 1:
-
+                            c.saisieNomAlbum();
                         break;
                     case 2:
 
@@ -35,8 +41,14 @@ public class Main {
                 }
 
                 System.out.println();
-            }catch(Exception e){
-                System.out.println(e.getMessage());
+            }catch(AlbumDejaExistantException e){
+                System.err.println(e.getMessage());
+            }catch (AlbumIntrouvableException e){
+                System.err.println(e.getMessage());
+            }catch (DiscothequeVideException e){
+                System.err.println(e.getMessage());
+            }catch (SaisieInvalideException e){
+                System.err.println(e.getMessage());
             }
 
         } while (choix != 0);
