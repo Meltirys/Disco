@@ -37,7 +37,7 @@ public class Controller {
         String nom = scan.nextLine();
         System.out.println("Veuillez saisir l'auteur ou artiste");
         String aut = scan.nextLine();
-        System.out.println("Veuillez saisir l'année de parution au format dd/MM/yy");
+        System.out.println("Veuillez saisir l'année de parution au format dd/MM/yyyy");
         String date = scan.nextLine();
         System.out.println("Veuillez saisir la quantité");
         int qt = scan.nextInt();
@@ -88,7 +88,9 @@ public class Controller {
         scan.nextLine();
         System.out.println("Veuillez saisir le nom");
         String nom = scan.nextLine();
-        Discotheque.rechercherAlbum(nom);
+        Album trouve = Discotheque.rechercherAlbum(nom);
+        System.out.println(trouve.getNom());
+
     }
 
     public LocalDate creerDate(String date) throws DateTimeParseException {

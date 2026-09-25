@@ -43,6 +43,7 @@ public class Discotheque {
             for (Album a : discotheque) {
                 if (a.getNom().equals(nom)) {
                     trouve = a;
+                    break;
                 }
             }
             if(trouve==null){
