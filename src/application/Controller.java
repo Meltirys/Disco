@@ -8,12 +8,18 @@ import modele.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import exceptions.AlbumDejaExistantException;
+import exceptions.SaisieInvalideException;
+import modele.Album;
+import modele.Discotheque;
+
 import java.util.Scanner;
 
 
 public class Controller {
 
     static Scanner scan = new Scanner(System.in);
+    Discotheque discotheque = new Discotheque();
 
     public void afficherMenu() {
         System.out.println("==== Menu principal ====");
@@ -114,4 +120,18 @@ public class Controller {
 
         Discotheque.listerAlbums();
     }
-}
+
+    public String saisieNomAlbum() throws SaisieInvalideException {
+        scan.nextLine();
+        System.out.println("Saisir le nom de l'album : ");
+        String nomAlbum = scan.nextLine();
+
+        if (nomAlbum.isEmpty()){
+            throw new SaisieInvalideException("Merci de saisir le nom");
+        }
+        return nomAlbum;
+    }
+
+
+    }
+
