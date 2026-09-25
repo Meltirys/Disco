@@ -5,7 +5,6 @@ import exceptions.AlbumIntrouvableException;
 import exceptions.DiscothequeVideException;
 import modele.*;
 
-import javax.swing.text.DateFormatter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -31,13 +30,14 @@ public class Controller {
 
         scan.nextLine();
         System.out.println("Veuillez définir le type");
+        System.out.println(" 1. CD; 2. Vinyle; 3. Format numérique");
         int genre = scan.nextInt();
         scan.nextLine();
         System.out.println("Veuillez saisir le nom");
         String nom = scan.nextLine();
         System.out.println("Veuillez saisir l'auteur ou artiste");
         String aut = scan.nextLine();
-        System.out.println("Veuillez saisir l'année de parution");
+        System.out.println("Veuillez saisir l'année de parution au format dd/MM/yy");
         String date = scan.nextLine();
         System.out.println("Veuillez saisir la quantité");
         int qt = scan.nextInt();
@@ -76,13 +76,19 @@ public class Controller {
                     break;
                 }
 
-
             }
         } catch (DateTimeParseException | AlbumDejaExistantException e) {
             System.out.println("Le format est invalide");
         }
 
 
+    }
+
+    public  void rechercheAlbum() throws AlbumIntrouvableException, DiscothequeVideException{
+        scan.nextLine();
+        System.out.println("Veuillez saisir le nom");
+        String nom = scan.nextLine();
+        Discotheque.rechercherAlbum(nom);
     }
 
     public LocalDate creerDate(String date) throws DateTimeParseException {
