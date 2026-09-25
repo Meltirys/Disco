@@ -22,16 +22,16 @@ public class Main {
 
                 switch (choix) {
                     case 1:
-                            c.saisieNomAlbum();
+                        c.ajouterAlbum();
                         break;
                     case 2:
-
+                        c.afficherAlbums();
                         break;
                     case 3:
-
+                        c.rechercheAlbum();
                         break;
                     case 4:
-
+                        c.retirerAlbum();
                         break;
                     case 0:
                         System.out.println("Fin du programme. Au revoir !");

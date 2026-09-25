@@ -1,13 +1,10 @@
 package application;
 
 import exceptions.AlbumDejaExistantException;
+import exceptions.AlbumIntrouvableException;
 import exceptions.DiscothequeVideException;
-import modele.CompactDisque;
-import modele.Discotheque;
-import modele.DisqueVinyle;
-import modele.FichierNumerique;
+import modele.*;
 
-import javax.swing.text.DateFormatter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -39,13 +36,14 @@ public class Controller {
 
         scan.nextLine();
         System.out.println("Veuillez définir le type");
+        System.out.println(" 1. CD; 2. Vinyle; 3. Format numérique");
         int genre = scan.nextInt();
         scan.nextLine();
         System.out.println("Veuillez saisir le nom");
         String nom = scan.nextLine();
         System.out.println("Veuillez saisir l'auteur ou artiste");
         String aut = scan.nextLine();
-        System.out.println("Veuillez saisir l'année de parution");
+        System.out.println("Veuillez saisir l'année de parution au format dd/MM/yyyy");
         String date = scan.nextLine();
         System.out.println("Veuillez saisir la quantité");
         int qt = scan.nextInt();
@@ -84,12 +82,20 @@ public class Controller {
                     break;
                 }
 
-
             }
         } catch (DateTimeParseException | AlbumDejaExistantException e) {
             System.out.println("Le format est invalide");
         }
 
+
+    }
+
+    public  void rechercheAlbum() throws AlbumIntrouvableException, DiscothequeVideException{
+        scan.nextLine();
+        System.out.println("Veuillez saisir le nom");
+        String nom = scan.nextLine();
+        Album trouve = Discotheque.rechercherAlbum(nom);
+        System.out.println(trouve.getNom());
 
     }
 
@@ -101,7 +107,12 @@ public class Controller {
         return datef;
     }
 
-    public void retirerAlbum() {
+    public void retirerAlbum() throws DiscothequeVideException, AlbumIntrouvableException {
+
+        scan.nextLine();
+        System.out.println("Veuillez saisir le nom de l'album");
+        String nom = scan.nextLine();
+        Discotheque.supprimerAlbum(nom);
 
     }
 
